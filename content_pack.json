@@ -1,0 +1,82 @@
+{
+  "v": "1",
+  "id": "48f10c1d-e1b2-4561-8191-d64915765ca7",
+  "rev": 4,
+  "name": "nginx-syslog",
+  "summary": "This content pack supports the NGINX syslog feature. It only requires modification of the nginx.conf file.",
+  "description": "This content pack supports the NGINX syslog feature. It only requires modification of the nginx.conf file. There are no bells and whistles. The goal is to start logging as quickly as possible.",
+  "vendor": "Nathaniel B <nathaniel@scriptingis.life>",
+  "url": "https://github.com/scriptingislife/graylog-content-pack-nginx-syslog",
+  "parameters": [],
+  "entities": [
+    {
+      "v": "1",
+      "type": {
+        "name": "input",
+        "version": "1"
+      },
+      "id": "dc46034b-da90-4ccf-9f3c-6ab050b43771",
+      "data": {
+        "title": {
+          "@type": "string",
+          "@value": "nginx-syslog"
+        },
+        "configuration": {
+          "expand_structured_data": {
+            "@type": "boolean",
+            "@value": false
+          },
+          "recv_buffer_size": {
+            "@type": "integer",
+            "@value": 262144
+          },
+          "port": {
+            "@type": "integer",
+            "@value": 12401
+          },
+          "number_worker_threads": {
+            "@type": "integer",
+            "@value": 4
+          },
+          "force_rdns": {
+            "@type": "boolean",
+            "@value": false
+          },
+          "allow_override_date": {
+            "@type": "boolean",
+            "@value": true
+          },
+          "bind_address": {
+            "@type": "string",
+            "@value": "0.0.0.0"
+          },
+          "store_full_message": {
+            "@type": "boolean",
+            "@value": true
+          }
+        },
+        "static_fields": {
+          "from_nginx": {
+            "@type": "string",
+            "@value": "true"
+          }
+        },
+        "type": {
+          "@type": "string",
+          "@value": "org.graylog2.inputs.syslog.udp.SyslogUDPInput"
+        },
+        "global": {
+          "@type": "boolean",
+          "@value": true
+        },
+        "extractors": []
+      },
+      "constraints": [
+        {
+          "type": "server-version",
+          "version": ">=4.2.5+59802bf"
+        }
+      ]
+    }
+  ]
+}
